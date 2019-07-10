@@ -1,0 +1,496 @@
+/* Main style */
+  
+.bg{
+    background-color: #0ca3d2;
+}
+p{
+    margin: 0;
+}
+img{
+    max-width: 100%;
+}
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: #0ca3d2;
+}
+
+/* Menu */
+.menu{
+    text-align: right;
+    font-family: Lucida sans-serif;
+   
+    
+}
+
+.menu-items{
+    display: inline-block;
+    color: #ffffff;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: bold;
+    
+    padding: 0 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.menu-items:hover{
+    color: black;
+}
+
+.icon{
+display: none;
+width: 40px;
+height: 30px;
+position: relative;
+cursor: pointer;
+}
+
+.icon span{
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    border-radius: 9px;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.icon span:nth-child(1){
+    top: 0px;
+}
+.icon span:nth-child(2), .icon span:nth-child(3){
+    top: 13px;
+}
+
+.icon span:nth-child(4){
+    top: 25px;
+}
+
+
+.menu.menu-open .links{
+    display: block;
+}
+/* Title */
+.wrapper{
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    
+}
+
+.top{
+  text-transform: uppercase;
+    color: #afb4b6;
+    font-size: 40px;
+    font-family: Lucida sans-serif;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
+    min-height: 100px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.grid{
+    
+    width: 100%;
+    margin-top: 20px;
+    min-width: 40px;
+    padding: 0 30px;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+.grid-item{
+    border: 1px solid black;
+    min-height: 200px;
+    margin: 0 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 270px;
+    
+}
+
+.grid-item h1{
+    font-size: 30px;
+    font-style: italic;
+}
+
+.grid-item button a{
+    text-decoration: none;
+    color: black;
+}
+
+/* Discription */
+.cost{
+    font-weight: bold;
+    font-size: 33px;
+    color: #bca480;
+}
+
+.block{
+    display: flex;
+    
+}
+
+.img-right{
+    margin-right: 20px;
+    min-width: 400px;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+
+.img{
+    position: absolute;
+    display: none;
+    margin-bottom: 10px;
+}
+
+.img.curry{
+    display: block;
+}
+.n{
+    color: #0ca3d2;
+}
+
+.n{
+    font-size: 15px;
+    text-decoration: none;
+}
+
+
+
+.prev{
+    position: absolute;
+    top: -30px;
+    left: 60px;
+    cursor: pointer;
+}
+
+.next{
+    position: absolute;
+    top: -30px;
+    left: 10px;
+    cursor: pointer;
+    
+}
+
+/* Media */
+
+@media screen and (max-width:648px) {
+    .icon{
+        display: inline-block;
+        margin: 10px;
+    }
+
+    .links{
+        display: block;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin-top: 52px;
+        background-color:#0ca3d2;
+        z-index: 1000;
+        display: none;
+        
+    }
+    .menu-items{
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+        color: white;
+    }
+    .block{
+        display: flex;
+        flex-direction: column;  
+        position: relative;
+        
+    } 
+
+    .descriptions{
+       position: relative;
+       margin-left: 15px;
+       margin-right: 15px;
+        top: 250px;
+        left: 0;
+    }
+    
+    .img-right{
+        min-width: 250px;
+    }
+    .img{
+        width: 250px;
+        margin-left: 50px;
+    }
+    .img.curry{
+        width: 250px;
+        margin-left: 50px;
+    }
+
+    .discript{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width:370px) {
+    body{
+        overflow-x: hidden,
+    }
+    .icon{
+        display: inline-block;
+        margin: 10px;
+    }
+
+    .links{
+        display: block;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin-top: 52px;
+        background-color:#0ca3d2;
+        z-index: 1000;
+        display: none;
+        
+    }
+    .menu-items{
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+        color: white;
+    }
+    .block{
+        display: flex;
+        flex-direction: column;
+        
+    
+        
+    } 
+
+    .descriptions{
+       position: relative;
+       margin-left: 10px;
+        top: 200px;
+        left: 0;
+    }
+    
+    .img-right{
+        min-width: 50px;
+    }
+    .img{
+        min-width: 50px;
+        
+    }
+    .img.curry{
+        min-width: 50px;
+        margin-left: 0px;
+        
+    }
+
+    .discript{
+        font-size: 20px;
+    }
+}
+
+/* Buttons */
+@keyframes stripe-slide {
+    0% {
+      background-position: 0% 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
+  body {
+    
+    font-family: sans-serif;
+  }
+  .btn {
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    line-height: normal;
+    cursor: pointer;
+    -moz-user-select: text;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 16px 36px 22px;
+    background-color: #fff;
+    color: #666;
+    border: 2px solid #666;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    transition: all 0.5s ease;
+  }
+  .btn:-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+  .btn--stripe {
+    overflow: hidden;
+    position: relative;
+  }
+  .btn--stripe:after {
+    content: '';
+    display: block;
+    height: 7px;
+    width: 100%;
+    background-image: repeating-linear-gradient(45deg, #666, #666 1px, transparent 2px, transparent 5px);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-top: 1px solid #666;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-size: 7px 7px;
+  }
+  .btn--stripe:hover {
+    background-color: #666;
+    color: #fff;
+    border-color: #000;
+  }
+  .btn--stripe:hover:after {
+    background-image: repeating-linear-gradient(45deg, #fff, #fff 1px, transparent 2px, transparent 5px);
+    border-top: 1px solid #000;
+    animation: stripe-slide 12s infinite linear forwards;
+  }
+  .btn--large {
+    width: 50%;
+  }
+  .btn--radius {
+    border-radius: 36px;
+  }
+
+  .four {
+    
+    padding: 50px 20px;
+    text-align: center;
+  } 
+  .four h1 {
+    font-family: 'Merriweather', serif;
+    position: relative;
+    color: #0ca3d2;
+    font-size: 50px;
+    font-weight: normal;
+    padding: 8px 20px 7px 20px;
+    border-top: 4px solid;
+    border-left: 4px solid;
+    display: inline-block;
+    margin: 0;
+    line-height: 1;
+  }
+  .four h1:before {
+    content: ""; 
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    top: -28px;
+    left: -28px;
+    border: 4px solid#0ca3d2; 
+    box-sizing: border-box;
+  }
+  @media (max-width: 450px) {
+    .four h1 {font-size: 36px;}
+    .four h1:before {
+      width: 20px;
+      height: 20px;
+      top: -20px;
+      left: -20px;
+    }
+  }
+
+/* Footer */
+  #myFooter{
+    padding-top:32px;
+}
+
+#myFooter .container{
+    text-align: center;
+}
+
+#myFooter .footer-copyright{
+    margin-bottom: 35px;
+    text-align: center;
+    color: #777;
+}
+
+#myFooter ul{
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 18px;
+}
+
+#myFooter a{
+    color: #282b2d;
+    font-size: 18px;
+}
+
+#myFooter li{
+    display: inline-block;
+    margin: 0px 15px;
+    line-height: 2;
+}
+
+#myFooter .footer-social{
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #eee;
+}
+
+#myFooter .fa{
+    font-size: 36px;
+    margin-right: 15px;
+    margin-left: 20px;
+    background-color: white;
+    color: #d0d0d0;
+    border-radius: 51%;
+    padding: 10px;
+   
+    width: 60px;
+    text-align: center;
+    line-height: 43px;
+    text-decoration: none;
+    transition:color 0.2s;
+}
+
+#myFooter .fa-facebook:hover{
+   color: #2b55ff;
+}
+
+#myFooter .fa-facebook:focus{
+    color: #2b55ff; 
+}
+
+#myFooter .fa-google-plus:hover{
+    color:red;
+}
+
+#myFooter .fa-google-plus:focus{
+    color:red;
+}
+
+#myFooter .fa-twitter:hover{
+    color: #00aced;
+
+}
+
+#myFooter .fa-twitter:focus{
+    color:#00aced;
+}
+
