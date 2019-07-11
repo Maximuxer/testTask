@@ -7,7 +7,10 @@
     <!-- CSS Libs -->
     <link rel="stylesheet" href="./css/libry/normalize.css">
     <link rel="stylesheet" href="./css/libry/skeleton.css">
-  
+  <!--FontAwesome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+   integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
     <!-- CSS main -->
     <link rel="stylesheet" href="./css/catalog.css">
     <title>Описание</title>
@@ -41,20 +44,53 @@
     <div class="wrapper">
     <div class="block">
         <div class="img-right">
-            <div class="prev n">NEXT</div>
-            
-            <div class="slider">
-               
+            <div class="carousel-container">
+                <div class="carousel-slides">
+
+                    <img id="myimg" src="" alt="" class="slide">
+                    <img  id="myimg2" src="" alt="" class="slide">
+                    <img id="myimg3" src="" alt="" class="slide">
+                    <img  id="myimg4" src="" alt="" class="slide">
+                    
+                </div>
+                <div class="btn-container">
+                    <div class="btns" id="prev"></div>
+                    <div class="btns" id="next"></div>
+                </div>
             </div>
-            <div class="next n">PREV</div>
+            <div class="block2"></div>
+
         </div>
-        <div class="block2"></div>
+        
     </div>
     </div>
+    <footer id="myFooter">
+        <div class="wrapper">
+            <ul>
+                <li><a href="./catalog.html">Каталог</a></li>
+                <li><a href="./index.html">Выйти</a></li>
+            </ul>
+        <p class="footer-copyright">© 2019 Copyright Yarik Shelest</p>
+        </div>
+        <div class="footer-social">
+            <a href="#" class="social-icons"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="social-icons"><i class="fa fa-google-plus"></i></a>
+            <a href="#" class="social-icons"><i class="fa fa-twitter"></i></a>
+        </div>
+</footer>
     
 <!-- JS Libs(jQuery)  furniture catalog -->
 <script src="./libs/jquery-3.2.1.min.js" defer ></script>
 <!-- JS main -->
 <script src="./libs/app-descriptions.js" defer ></script>
+<!-- Проверка на авторизованость -->
+<script>
+    if (localStorage.getItem('login')) {
+                console.log("oke" )
+}  else {
+document.location.href ="index.html"
+}
+    </script>
+
 </body>
 </html>

@@ -4,8 +4,51 @@ let discript = {};
 
 function init(){
 // Вычитаем файл Джейсон
-    $.getJSON("products.json", goodsOut)
+    $.getJSON("products.json", goodsOut);
+    $.getJSON("authorization.json", authorisation);
 }
+
+//  Валидация
+function validate() {
+    let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    let login = document.getElementById("login").value;
+    
+    if(reg.test(login) == false) {
+       alert('Введите корректный e-mail');
+    
+       return false;
+    }
+ }
+
+// Проверка пользователей на наличие
+function authorisation(data){
+    let count = 0;
+    $('#logins').on("click", function(){
+        validate()
+        let login = document.getElementById("login").value;
+        let password = document.getElementById("password").value;
+            for( let key in data){  
+                    if(login === data[key].email && password===data[key].password){
+                        document.location.href ="catalog.html"
+                    A();
+                } 
+        }     
+  });
+    function A(){
+         //сохраняю lданные в localStorage
+    localStorage.setItem('login', JSON.stringify(count)); //в строку
+    }
+}
+
+//   function B(){
+//         //проверяю есть ли в localStorage запись discript
+// //         if (localStorage.getItem('login')) {
+// //             console.log("oke" )
+// //         }  else {
+// //             // document.location.href ="index.html"
+// //         }
+// //   }
+
 
 function goodsOut(data){
     // Вывод на страницу
@@ -45,17 +88,7 @@ function loadCart() {
     }
    
 }
- // Авторизация(если єто можно так назвать:)))))
-function loginEnter(){
-    let login = document.getElementById("login").value;
-    let password = document.getElementById("password").value;
-
-    if(login==="admin" && password==="admin"){
-        document.location.href ="catalog.html"
-    } else {
-        alert('Ошибка авторизации')
-    }
-}
+ 
 // Реализация 
 $(document).ready(function(){
 	$('.icon').on('click', function(){
@@ -64,4 +97,6 @@ $(document).ready(function(){
 
     init();
     loadCart();
+    
+    
 });

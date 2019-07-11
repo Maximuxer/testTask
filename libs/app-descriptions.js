@@ -16,21 +16,23 @@ function  showDist(){
     $.getJSON("products.json", function (data) {
         let goods = data;
         let out = '';
-        let slider ='';
-        for(let id in discript){
-            
-            // console.log(goods)
-            // console.log(discript)
-            // console.log(id)
-            out +=`<div class="descriptions">${goods[id].description}</div>`
-            slider += `<img class="img curry" src="./img/${goods[id].imageFull}"   alt="">
-            <img class="img " src="./img/sold2.png"   alt=""> ` // Чтобы показать слайдер подключил
+        
+        
+        for(let key in discript){
+     
+        out +=`<div class="descriptions">${goods[key].description}</div>`
+             
+         $("#myimg").attr("src",`img/${goods[key].imageSlide}`);
+         $("#myimg2").attr("src",`img/${goods[key].imageSlide2}`);
+         $("#myimg3").attr("src",`img/${goods[key].imageSlide3}`);
+         $("#myimg4").attr("src",`img/${goods[key].imageSlide4}`);
         }
          $('.block2').html(out);
-         $('.slider').html(slider);
+      
          
     });
 }  
+
 
 // Очистка данных при выходи со страницы
 function clearLocalFile(){
@@ -39,7 +41,8 @@ function clearLocalFile(){
 window.onunload = function() {
     clearLocalFile();
   };
- 
+//   Функция конструктор слайдер
+
 //   Реализация
 $(document).ready(function(){
     // Меню
@@ -48,33 +51,69 @@ $(document).ready(function(){
     })
     loadCart();
 // Слайдер
-    $('.next').click(function() {
-        
-        let currentImage = $('.img.curry');
-        let currentImageIndex = $('.img.curry').index();
-        let nextImageIndex = currentImageIndex + 1;
-        let nextImage = $('.img').eq(nextImageIndex);
-        currentImage.fadeOut(1000);
-        currentImage.removeClass('curry');
-
-        if(nextImageIndex == ($('.img:last').index()+1)) {
-            $('.img').eq(0).fadeIn(1000);
-            $('.img').eq(0).addClass('curry');
-        } else {
-            nextImage.fadeIn(1000);
-            nextImage.addClass('curry');
-        }
-    });
-
-    $('.prev').click(function() {
-        let currentImage = $('.img.curry');
-        let currentImageIndex = $('.img.curry').index();
-        let prevImageIndex = currentImageIndex - 1;
-        let prevImage = $('.img').eq(prevImageIndex);
-        currentImage.fadeOut(1000);
-        currentImage.removeClass('curry');
-        prevImage.fadeIn(1000);
-        prevImage.addClass('curry');
-    });
+   
+ 
     loadCart();
+    (function() {
+
+        var doc = document,
+            index = 1;
+    
+        var Slider = function() {
+            this.box = doc.querySelector('.carousel-container');
+            this.slidesBox = doc.querySelector('.carousel-slides');
+            this.slides = doc.querySelectorAll('.slide');
+            this.btns = doc.querySelectorAll('.btns');
+            this.size = this.box.clientWidth;
+    
+            this.position();
+            this.carousel();
+    
+        };
+    
+        Slider.prototype.position = function() {
+            var size = this.size;
+            this.slidesBox.style.transform = 'translateX(' + (-index * size) + 'px)';
+        };
+    
+        Slider.prototype.carousel = function() {
+            var i, max = this.btns.length,
+                that = this;
+    
+            for (i = 0; i < max; i += 1) {
+                that.btns[i].addEventListener('click', Slider[that.btns[i].id].bind(null, that));
+            }
+        }
+    
+        Slider.prev = function(box) {
+            box.slidesBox.style.transition = "transform .3s ease-in-out";
+            var size = box.size;
+            index <= 0 ? false : index--;
+            box.slidesBox.style.transform = 'translateX(' + (-index * size) + 'px)';
+            box.jump();
+        };
+    
+        Slider.next = function(box) {
+            box.slidesBox.style.transition = "transform .3s ease-in-out";
+            var max = box.slides.length;
+            var size = box.size;
+            index >= max - 1 ? false : index++;
+            box.slidesBox.style.transform = 'translateX(' + (-index * size) + 'px)';
+            box.jump();
+        };
+    
+        Slider.prototype.jump = function() {
+            var that = this;
+            var size = this.size;
+            this.slidesBox.addEventListener('transitionend', function() {
+                
+                that.slidesBox.style.transition = "none";
+                that.slidesBox.style.transform = 'translateX(' + (-index * size) + 'px)';
+            });
+        }
+    
+    
+        new Slider();
+    
+    })();
 })

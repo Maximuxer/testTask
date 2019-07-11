@@ -68,6 +68,13 @@
 <script src="./libs/jquery-3.2.1.min.js" defer ></script>
 <!-- JS main -->
 <script src="./js/app.js" defer ></script>
+<script>
+if (localStorage.getItem('login')) {
+            console.log("oke" )
+        }  else {
+            document.location.href ="index.html"
+        }
+</script>
 
 
 </body>
