@@ -56,10 +56,10 @@ $(document).ready(function(){
     loadCart();
     (function() {
 
-        var doc = document,
+        let doc = document,
             index = 1;
     
-        var Slider = function() {
+        let Slider = function() {
             this.box = doc.querySelector('.carousel-container');
             this.slidesBox = doc.querySelector('.carousel-slides');
             this.slides = doc.querySelectorAll('.slide');
@@ -77,7 +77,7 @@ $(document).ready(function(){
         };
     
         Slider.prototype.carousel = function() {
-            var i, max = this.btns.length,
+            let i, max = this.btns.length,
                 that = this;
     
             for (i = 0; i < max; i += 1) {
@@ -87,7 +87,7 @@ $(document).ready(function(){
     
         Slider.prev = function(box) {
             box.slidesBox.style.transition = "transform .3s ease-in-out";
-            var size = box.size;
+            let size = box.size;
             index <= 0 ? false : index--;
             box.slidesBox.style.transform = 'translateX(' + (-index * size) + 'px)';
             box.jump();
@@ -95,16 +95,16 @@ $(document).ready(function(){
     
         Slider.next = function(box) {
             box.slidesBox.style.transition = "transform .3s ease-in-out";
-            var max = box.slides.length;
-            var size = box.size;
+            let max = box.slides.length;
+            let size = box.size;
             index >= max - 1 ? false : index++;
             box.slidesBox.style.transform = 'translateX(' + (-index * size) + 'px)';
             box.jump();
         };
     
         Slider.prototype.jump = function() {
-            var that = this;
-            var size = this.size;
+            let that = this;
+            let size = this.size;
             this.slidesBox.addEventListener('transitionend', function() {
                 
                 that.slidesBox.style.transition = "none";
